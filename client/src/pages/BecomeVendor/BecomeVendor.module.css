@@ -1,0 +1,203 @@
+/* =====================================================
+   BECOME VENDOR - CSS Module
+   ===================================================== */
+
+.page {
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    background: var(--gradient-bg);
+}
+
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10);
+    width: 100%;
+    max-width: 500px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.headerIcon {
+    font-size: var(--font-size-4xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.header h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-2);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    color: var(--text-muted);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+}
+
+.formGroup textarea {
+    resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.locationBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+}
+
+.locationSuccess {
+    display: block;
+    margin-top: var(--space-2);
+    color: var(--color-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.infoBox {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: rgba(0, 217, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.infoBox svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    color: var(--bg-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-strong);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.alreadyVendor {
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    color: var(--text-primary);
+}
+
+.alreadyVendor button {
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    color: var(--bg-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Location Type Selector */
+.locationTypeGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+.locationTypeBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-6) var(--space-4);
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    transition: all var(--transition-normal);
+}
+
+.locationTypeBtn:hover {
+    border-color: var(--color-primary);
+}
+
+.locationTypeBtn.active {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: var(--color-primary);
+    color: var(--text-primary);
+}
+
+.locationTypeBtn svg {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.locationTypeBtn span {
+    font-weight: var(--font-weight-semibold);
+}
+
+.locationTypeBtn small {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}

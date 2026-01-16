@@ -1,0 +1,240 @@
+/* =====================================================
+   MY COUPONS PAGE - CSS Module
+   ===================================================== */
+
+.page {
+    padding: var(--space-8);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.header h1 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-2xl);
+}
+
+.header h1 svg {
+    color: var(--color-primary);
+}
+
+.header p {
+    color: var(--text-muted);
+    margin-top: var(--space-1);
+}
+
+.addBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    color: var(--bg-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Form */
+.form {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.field label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.field input {
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+}
+
+.field input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.hint {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    color: var(--bg-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* States */
+.loading {
+    text-align: center;
+    padding: var(--space-12);
+    color: var(--text-muted);
+}
+
+.empty {
+    text-align: center;
+    padding: var(--space-12);
+    background: var(--bg-card);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-xl);
+    color: var(--text-muted);
+}
+
+.empty h3 {
+    margin-top: var(--space-4);
+    color: var(--text-primary);
+}
+
+.empty p {
+    margin-top: var(--space-2);
+}
+
+/* Coupon List */
+.list {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.couponCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    transition: all var(--transition-normal);
+}
+
+.couponCard:hover {
+    border-color: var(--color-primary);
+}
+
+.couponCard.inactive {
+    opacity: 0.6;
+}
+
+.couponHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.code {
+    font-family: monospace;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+.discount {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    background: rgba(16, 185, 129, 0.15);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-3);
+}
+
+.couponMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.couponMeta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.couponActions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.deactivateBtn,
+.activateBtn {
+    flex: 1;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+}
+
+.deactivateBtn {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.activateBtn {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+}
+
+.deleteBtn {
+    padding: var(--space-2);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+}
+
+.deleteBtn:hover {
+    color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}

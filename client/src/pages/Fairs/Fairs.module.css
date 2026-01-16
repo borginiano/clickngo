@@ -1,0 +1,169 @@
+/* =====================================================
+   FAIRS PAGE - CSS Module
+   ===================================================== */
+
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-8);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.headerIcon {
+    font-size: var(--font-size-4xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.header h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-2);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    color: var(--text-muted);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.card {
+    display: flex;
+    gap: var(--space-6);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.cardImage {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.cardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardContent {
+    flex: 1;
+    padding: var(--space-6);
+}
+
+.cardContent h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+}
+
+.cardDescription {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-base);
+}
+
+.cardMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-2);
+}
+
+.cardMeta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.cardDate {
+    color: var(--color-primary) !important;
+}
+
+.recurringBadge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: rgba(0, 217, 255, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-2);
+}
+
+.empty {
+    text-align: center;
+    padding: var(--space-16) var(--space-8);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    color: var(--text-muted);
+}
+
+.empty svg {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-4);
+    opacity: 0.3;
+}
+
+.empty span {
+    display: block;
+    color: var(--text-disabled);
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .cardImage {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+/* Map Link */
+.mapLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+
+.mapLink:hover {
+    text-decoration: underline;
+}
+
+/* Days Badge */
+.daysBadge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-full);
+    color: #10b981;
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-2);
+    margin-left: var(--space-2);
+}

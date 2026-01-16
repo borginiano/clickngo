@@ -1,0 +1,399 @@
+/* =====================================================
+   MY CLASSIFIEDS PAGE - CSS Module
+   ===================================================== */
+
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+}
+
+.header {
+    margin-bottom: var(--space-6);
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+}
+
+.header h1 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+}
+
+.counter {
+    color: var(--text-muted);
+}
+
+/* Actions */
+.actions {
+    margin-bottom: var(--space-6);
+}
+
+.createBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    color: var(--bg-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.limitMsg {
+    color: var(--color-error);
+    background: rgba(239, 68, 68, 0.1);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+}
+
+/* Form */
+.form {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.form h2 {
+    margin-bottom: var(--space-5);
+}
+
+.typeSelection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+}
+
+.typeOption {
+    position: relative;
+    padding: var(--space-4);
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.typeOption input {
+    position: absolute;
+    opacity: 0;
+}
+
+.typeOption.active {
+    border-color: var(--color-primary);
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.typeLabel {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-1);
+}
+
+.typeDesc {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.formGroup {
+    margin-bottom: var(--space-4);
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+.formActions {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: flex-end;
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border-color);
+}
+
+.cancelBtn {
+    padding: var(--space-3) var(--space-5);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+}
+
+.submitBtn {
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-secondary);
+    border-radius: var(--radius-md);
+    color: var(--bg-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* List */
+.list {
+    margin-bottom: var(--space-6);
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-muted);
+    padding: var(--space-8);
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    margin-bottom: var(--space-4);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+}
+
+.badge {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+}
+
+.badgeSeeking {
+    background: rgba(0, 217, 255, 0.15);
+    color: var(--color-secondary);
+}
+
+.badgeOffering {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+}
+
+.cardActions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.cardActions button {
+    padding: var(--space-2);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    transition: all var(--transition-normal);
+}
+
+.cardActions button:hover {
+    color: var(--color-primary);
+}
+
+.cardActions button:last-child:hover {
+    color: var(--color-error);
+}
+
+.card h3 {
+    margin-bottom: var(--space-2);
+}
+
+.cardDesc {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-3);
+    line-height: 1.5;
+}
+
+.cardMeta {
+    display: flex;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.cardMeta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-color);
+}
+
+.category {
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+    background: rgba(139, 92, 246, 0.1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+}
+
+.date {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+/* Empty */
+.empty {
+    text-align: center;
+    padding: var(--space-12);
+    color: var(--text-muted);
+}
+
+.empty svg {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-3);
+}
+
+/* Info */
+.info {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+}
+
+.info h3 {
+    margin-bottom: var(--space-3);
+}
+
+.info ul {
+    list-style: disc;
+    padding-left: var(--space-5);
+}
+
+.info li {
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+    line-height: 1.5;
+}
+
+/* CV Attachment */
+.cvAttachment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-4);
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.checkboxLabel input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+}
+
+.checkboxLabel svg {
+    color: var(--color-primary);
+}
+
+.cvLink {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+}
+
+.cvPromo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.cvPromo svg {
+    color: var(--color-secondary);
+}
+
+.cvPromo a {
+    margin-left: auto;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* CV Badge on card */
+.cvBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    margin-left: var(--space-2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .typeSelection {
+        grid-template-columns: 1fr;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .formActions {
+        flex-direction: column;
+    }
+
+    .formActions button {
+        width: 100%;
+    }
+}

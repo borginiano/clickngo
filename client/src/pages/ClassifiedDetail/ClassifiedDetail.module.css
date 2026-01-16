@@ -1,0 +1,321 @@
+/* =====================================================
+   CLASSIFIED DETAIL PAGE - CSS Module
+   ===================================================== */
+
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+}
+
+.header {
+    margin-bottom: var(--space-6);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.backLink:hover {
+    color: var(--text-primary);
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: var(--space-16);
+    color: var(--text-muted);
+}
+
+.error h2 {
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+.backBtn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-lg);
+}
+
+/* Classified Article */
+.classified {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+}
+
+.badgeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.badge {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.badgeSeeking {
+    background: rgba(0, 217, 255, 0.15);
+    color: var(--color-secondary);
+}
+
+.badgeOffering {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+}
+
+.jobType {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+.title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.meta svg {
+    color: var(--color-secondary);
+}
+
+/* Sections */
+.section {
+    margin-bottom: var(--space-6);
+}
+
+.section h2 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+    color: var(--color-primary);
+}
+
+.description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+/* Publisher */
+.publisher {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform var(--transition-normal);
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar svg {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.publisherInfo {
+    flex: 1;
+}
+
+.publisherName {
+    display: block;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.publisherName:hover {
+    color: var(--color-secondary);
+}
+
+.publisherActions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.vendorLink {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+    padding: var(--space-1) var(--space-2);
+    background: rgba(0, 217, 255, 0.1);
+    border-radius: var(--radius-md);
+}
+
+.chatBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    padding: var(--space-1) var(--space-2);
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+}
+
+.chatBtn:hover {
+    background: rgba(139, 92, 246, 0.2);
+}
+
+/* CV Link */
+.cvLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: var(--radius-lg);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-normal);
+}
+
+.cvLink:hover {
+    background: rgba(139, 92, 246, 0.2);
+}
+
+/* Contact Section */
+.contactSection {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.whatsappBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: #25D366;
+    color: white;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+}
+
+.whatsappBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.contactButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+}
+
+.chatBtnLarge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+}
+
+.chatBtnLarge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+}
+
+.noContact {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.expiry {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .classified {
+        padding: var(--space-5);
+    }
+
+    .title {
+        font-size: var(--font-size-xl);
+    }
+
+    .meta {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .whatsappBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}

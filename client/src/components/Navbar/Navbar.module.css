@@ -1,0 +1,254 @@
+/* =====================================================
+   NAVBAR - CSS Module
+   ===================================================== */
+
+.navbar {
+    background: var(--bg-navbar);
+    padding: var(--space-4);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.logoIcon {
+    font-size: 1.8rem;
+}
+
+.logoText {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.menuToggle {
+    display: none;
+    color: var(--text-primary);
+    font-size: var(--font-size-2xl);
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-normal);
+}
+
+.navLink:hover {
+    color: var(--color-primary);
+}
+
+.premiumLink {
+    /* Base navLink styles */
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-normal);
+    /* Premium specific */
+    color: var(--color-accent) !important;
+}
+
+.premiumLink:hover {
+    color: var(--color-accent-light) !important;
+}
+
+.favoritesLink {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    transition: color var(--transition-normal);
+}
+
+.favoritesLink:hover {
+    color: #ff4d6d;
+}
+
+.favoritesLink svg {
+    color: #ff4d6d;
+}
+
+.userMenu {
+    position: relative;
+}
+
+.userButton {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    transition: background var(--transition-normal);
+    cursor: pointer;
+}
+
+.userButton:hover {
+    background: var(--bg-card-hover);
+}
+
+.chevron {
+    transition: transform var(--transition-fast);
+    font-size: 0.875rem;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+.userDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: var(--space-2);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+    min-width: 200px;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+}
+
+.dropdownUser {
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.dropdownUser strong {
+    color: var(--text-primary);
+}
+
+.dropdownUser span {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.dropdownDivider {
+    height: 1px;
+    background: var(--border-color);
+    margin: var(--space-2) 0;
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-2) var(--space-4);
+    color: var(--text-primary);
+    white-space: nowrap;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.dropdownItem:hover {
+    background: var(--bg-tertiary);
+    color: #ef4444;
+}
+
+.authButtons {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.btnLogin {
+    color: var(--text-primary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    transition: background var(--transition-normal);
+}
+
+.btnLogin:hover {
+    background: var(--bg-card);
+}
+
+.btnRegister {
+    background: var(--color-primary);
+    color: #111827;
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-primary);
+}
+
+.btnRegister:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .menuToggle {
+        display: block;
+    }
+
+    .links {
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        background: var(--bg-tertiary);
+        flex-direction: column;
+        padding: var(--space-8);
+        gap: var(--space-6);
+        transform: translateY(-150%);
+        transition: transform var(--transition-normal);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .linksOpen {
+        transform: translateY(0);
+    }
+
+    .authButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btnLogin,
+    .btnRegister {
+        text-align: center;
+        padding: var(--space-3);
+    }
+}
+
+/* Print Styles - Hide navbar completely */
+@media print {
+    .navbar {
+        display: none !important;
+    }
+}

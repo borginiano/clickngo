@@ -1,0 +1,119 @@
+/* =====================================================
+   QR CODE BUTTON - CSS Module
+   ===================================================== */
+
+.qrButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.qrButton:hover {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: var(--color-primary);
+}
+
+/* Modal Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--space-4);
+}
+
+/* Modal */
+.modal {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: var(--text-primary);
+}
+
+.modal h2 {
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-xl);
+}
+
+.title {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+/* QR Container */
+.qrContainer {
+    background: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    display: inline-block;
+    margin-bottom: var(--space-4);
+}
+
+.urlText {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    word-break: break-all;
+    margin-bottom: var(--space-6);
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+.actionBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: var(--gradient-primary);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.actionBtn:hover {
+    transform: translateY(-2px);
+}
+
+.actionBtn:first-child {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}

@@ -1,0 +1,79 @@
+/* =====================================================
+   STAR RATING - CSS Module
+   ===================================================== */
+
+.container {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+/* Sizes */
+.sm .star {
+    font-size: 0.875rem;
+}
+
+.md .star {
+    font-size: 1.125rem;
+}
+
+.lg .star {
+    font-size: 1.5rem;
+}
+
+.star {
+    color: var(--border-color);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: default;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+}
+
+.star.filled {
+    color: #fbbf24;
+    /* Yellow/Gold */
+}
+
+.star.filled svg {
+    fill: #fbbf24;
+}
+
+.star.half {
+    color: #fbbf24;
+}
+
+.star.interactive {
+    cursor: pointer;
+}
+
+.star.interactive:hover {
+    transform: scale(1.2);
+    color: #fbbf24;
+}
+
+.ratingValue {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.count {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* Large size adjustments */
+.lg .ratingValue {
+    font-size: var(--font-size-lg);
+}
+
+.lg .count {
+    font-size: var(--font-size-base);
+}

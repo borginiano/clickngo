@@ -1,0 +1,180 @@
+/* =====================================================
+   IMAGE UPLOAD - CSS Module
+   ===================================================== */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* Upload Buttons Row */
+.uploadButtons {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.uploadBtn,
+.cameraBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
+}
+
+.uploadBtn {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.uploadBtn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.cameraBtn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.cameraBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-8);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.dropzone:hover {
+    border-color: var(--color-primary);
+    background: rgba(0, 217, 255, 0.05);
+}
+
+.dropzoneActive {
+    border-color: var(--color-primary);
+    background: rgba(0, 217, 255, 0.1);
+}
+
+.dropzoneIcon {
+    font-size: 2rem;
+    color: var(--text-muted);
+}
+
+.dropzoneText {
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.dropzoneText span {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.dropzoneHint {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+/* Preview Grid */
+.previewGrid {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.previewItem {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+}
+
+.previewItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.removeBtn {
+    position: absolute;
+    top: var(--space-1);
+    right: var(--space-1);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 100, 100, 0.9);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+}
+
+.uploading {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+}
+
+/* Single Avatar Preview */
+.avatarPreview {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+    margin: 0 auto;
+}
+
+.avatarPreview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatarOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    cursor: pointer;
+}
+
+.avatarPreview:hover .avatarOverlay {
+    opacity: 1;
+}
+
+.avatarOverlay span {
+    color: #fff;
+    font-size: var(--font-size-sm);
+}

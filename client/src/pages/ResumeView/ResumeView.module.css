@@ -1,0 +1,340 @@
+/* =====================================================
+   RESUME VIEW PAGE - Public CV Display
+   ===================================================== */
+
+.page {
+    min-height: calc(100vh - var(--navbar-height));
+    background: var(--bg-primary);
+    padding: var(--space-6) var(--space-4);
+}
+
+.header {
+    max-width: 800px;
+    margin: 0 auto var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.printBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.backLink:hover {
+    color: var(--text-primary);
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: var(--space-16);
+    color: var(--text-muted);
+}
+
+.error h2 {
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+.backBtn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-lg);
+}
+
+/* Resume Container */
+.resume {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Resume Header */
+.resumeHeader {
+    background: linear-gradient(135deg, var(--template-color, var(--color-primary)) 0%, rgba(139, 92, 246, 0.8) 100%);
+    padding: var(--space-8);
+    color: white;
+}
+
+.nameSection h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-2);
+}
+
+.title {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+}
+
+.contactInfo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    font-size: var(--font-size-sm);
+}
+
+.contactInfo span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    opacity: 0.9;
+}
+
+/* Sections */
+.section {
+    padding: var(--space-6) var(--space-8);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section h2 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+}
+
+.summary {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.timelineItem {
+    position: relative;
+    padding-left: var(--space-5);
+    border-left: 2px solid var(--border-color);
+}
+
+.timelineItem::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+.timelineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
+}
+
+.timelineHeader strong {
+    color: var(--text-primary);
+}
+
+.period {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+}
+
+.company {
+    color: var(--color-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-2);
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* Skills */
+.skillsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.skillTag {
+    padding: var(--space-2) var(--space-3);
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+}
+
+/* Category Badge */
+.categoryBadge {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    padding: var(--space-1) var(--space-3);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    backdrop-filter: blur(4px);
+}
+
+/* Template variations */
+.modern .resumeHeader {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.minimal .resumeHeader {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.minimal .contactInfo span {
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .resumeHeader {
+        padding: var(--space-6);
+    }
+
+    .nameSection h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .contactInfo {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .section {
+        padding: var(--space-4) var(--space-5);
+    }
+
+    .timelineHeader {
+        flex-direction: column;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header {
+        display: none !important;
+    }
+
+    .page {
+        background: white !important;
+        padding: 0 !important;
+        min-height: auto !important;
+    }
+
+    .resume {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        background: white !important;
+    }
+
+    /* Header: white bg, black text, border line only */
+    .resumeHeader {
+        background: white !important;
+        color: #000 !important;
+        border-bottom: 2px solid #000 !important;
+        padding-bottom: var(--space-4) !important;
+    }
+
+    .nameSection h1 {
+        color: #000 !important;
+    }
+
+    .title {
+        color: #333 !important;
+    }
+
+    .contactInfo span {
+        color: #444 !important;
+    }
+
+    /* Sections with black text */
+    .section {
+        background: white !important;
+    }
+
+    .section h2 {
+        color: #333 !important;
+        border-color: #333 !important;
+    }
+
+    .summary {
+        color: #333 !important;
+    }
+
+    .timelineItem {
+        border-color: #ccc !important;
+    }
+
+    .timelineItem::before {
+        background: #333 !important;
+    }
+
+    .timelineHeader strong {
+        color: #000 !important;
+    }
+
+    .period {
+        color: #666 !important;
+        background: #eee !important;
+    }
+
+    .company {
+        color: #444 !important;
+    }
+
+    .description {
+        color: #333 !important;
+    }
+
+    .skillTag {
+        background: #eee !important;
+        color: #333 !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .categoryBadge {
+        display: none !important;
+    }
+}

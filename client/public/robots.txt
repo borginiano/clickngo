@@ -1,0 +1,24 @@
+# ClickNGo - Robots.txt
+# https://clickngo.bdsmbefree.com
+
+User-agent: *
+Allow: /
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://clickngo.bdsmbefree.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin
+Disallow: /*.json$
+
+# Allow important pages
+Allow: /
+Allow: /vendors
+Allow: /fairs
+Allow: /classifieds
+Allow: /product/*
+Allow: /vendor/*

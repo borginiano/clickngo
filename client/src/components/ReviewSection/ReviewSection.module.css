@@ -1,0 +1,209 @@
+/* =====================================================
+   REVIEW SECTION - CSS Module
+   ===================================================== */
+
+.container {
+    margin-top: var(--space-8);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.header h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-lg);
+}
+
+.header h3 svg {
+    color: var(--color-primary);
+}
+
+.count {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.loading {
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-6);
+}
+
+/* Add Review Button */
+.addReviewBtn {
+    display: block;
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
+    margin-bottom: var(--space-4);
+}
+
+.addReviewBtn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: rgba(0, 217, 255, 0.05);
+}
+
+/* Form */
+.form {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.formRating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.formRating label {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.textarea {
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: var(--space-3);
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.formActions {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: flex-end;
+}
+
+.cancelBtn {
+    padding: var(--space-2) var(--space-4);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+}
+
+.submitBtn {
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-primary);
+    color: var(--bg-primary);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Empty state */
+.empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: var(--space-6);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+/* Reviews List */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.review {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-2);
+}
+
+.reviewUser {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.reviewUser img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatarPlaceholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.userName {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+}
+
+.date {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.reviewRating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.deleteBtn {
+    padding: var(--space-1);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast);
+}
+
+.deleteBtn:hover {
+    color: #ef4444;
+}
+
+.reviewComment {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin-top: var(--space-2);
+}

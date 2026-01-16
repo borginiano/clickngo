@@ -1,0 +1,280 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  VENDOR
+  ADMIN
+}
+
+enum SubscriptionType {
+  FREE
+  PREMIUM
+}
+
+model User {
+  id            String           @id @default(uuid())
+  email         String           @unique
+  password      String
+  name          String
+  phone         String?
+  avatar        String?
+  role          Role             @default(USER)
+  subscription  SubscriptionType @default(FREE)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  vendor        Vendor?
+  reviews       Review[]         // Reviews this user has written
+  notifications Notification[]   // User's notifications
+  classifieds   Classified[]     // User's job classifieds
+  resume        Resume?          // User's CV/Resume
+  favorites     Favorite[]       // User's favorite products
+  pushToken     String?          // FCM push notification token
+}
+
+model Resume {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  template    String   @default("professional") // professional, modern, minimal
+  category    String   // Job category
+  data        Json     // CV structured data
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Vendor {
+  id           String       @id @default(uuid())
+  userId       String       @unique
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessName String
+  description  String?
+  category     String?
+  locationType String       @default("CITY") // "EXACT" = tienda fija, "CITY" = ambulante
+  city         String?      // Solo ciudad (ej: "Buenos Aires")
+  address      String?      // Dirección exacta (solo si locationType = EXACT)
+  latitude     Float?
+  longitude    Float?
+  storeImages  String[]     // Fotos del local (Premium feature)
+  facebookPage String?      // Link a página de Facebook del vendedor
+  verified     Boolean      @default(false)
+  avgRating    Float        @default(0)  // Average rating (calculated)
+  totalReviews Int          @default(0)  // Total number of reviews
+  followerCount Int         @default(0)  // Number of followers
+  products     Product[]
+  reviews      Review[]
+  coupons      Coupon[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Product {
+  id            String          @id @default(uuid())
+  vendorId      String
+  vendor        Vendor          @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  name          String
+  description   String?
+  price         Float
+  images        String[]
+  category      String
+  active        Boolean         @default(true)
+  
+  // Ratings (calculated from reviews)
+  avgRating     Float           @default(0)
+  totalReviews  Int             @default(0)
+  
+  // Delivery options
+  deliveryType  String?  // "DELIVERY" | "PICKUP" | "BOTH"
+  deliveryNote  String?  // Additional notes for delivery
+  
+  // Social publishing
+  promoText     String?  // AI-generated or custom promo text
+  publishedToFB Boolean  @default(false)
+  fbPostId      String?  // Facebook post ID if published
+  
+  // Relations
+  reviews       ProductReview[]
+  
+  // Featured (Premium feature)
+  featured      Boolean   @default(false)
+  featuredUntil DateTime?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Fair {
+  id           String      @id @default(uuid())
+  name         String
+  description  String?
+  address      String
+  country      String?     // País (AR, UY, CL)
+  province     String?     // Provincia/Departamento
+  city         String?     // Ciudad
+  latitude     Float?      // Opcional si se usa mapsUrl
+  longitude    Float?      // Opcional si se usa mapsUrl
+  mapsUrl      String?     // Link directo de Google Maps (ej: maps.app.goo.gl/xxx)
+  startDate    DateTime    // Fecha inicio (para ferias temporales)
+  endDate      DateTime    // Fecha fin (para ferias temporales)
+  openDays     String[]    // Días que abre: ["SAT", "SUN"] o ["MON","TUE","WED","THU","FRI"]
+  openTime     String?     // Hora apertura: "09:00"
+  closeTime    String?     // Hora cierre: "18:00"
+  recurring    String?     // "weekly", "monthly", "permanent", null
+  image        String?
+  gallery      String[]    // Galería de fotos
+  capacity     Int?        // Cantidad de stands disponibles
+  contactPhone String?     // Teléfono de contacto
+  contactEmail String?     // Email de contacto
+  createdBy    String
+  active       Boolean     @default(true)
+  featured     Boolean     @default(false) // Destacada
+  stands       FairStand[] // Relación con stands
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model FairStand {
+  id          String   @id @default(uuid())
+  fairId      String
+  fair        Fair     @relation(fields: [fairId], references: [id], onDelete: Cascade)
+  vendorId    String?  // Nullable: puede estar vacío (stand disponible)
+  standNumber String   // "A1", "B2", etc.
+  category    String?  // Categoría del stand (Comida, Ropa, etc.)
+  description String?  // Descripción del stand
+  price       Float?   // Precio de alquiler (opcional)
+  status      String   @default("AVAILABLE") // AVAILABLE, RESERVED, OCCUPIED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  vendorId  String
+  vendor    Vendor   @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int      // 1-5 stars
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([vendorId, userId]) // One review per user per vendor
+}
+
+// Product-specific reviews (separate from vendor reviews)
+model ProductReview {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId    String
+  userName  String   // Stored for display (in case user deletes account)
+  userAvatar String? // Stored for display
+  rating    Int      // 1-5 stars
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([productId, userId]) // One review per user per product
+}
+
+model Coupon {
+  id          String   @id @default(uuid())
+  vendorId    String
+  vendor      Vendor   @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  code        String   // Coupon code (e.g., "VERANO10")
+  discount    Int      // Discount percentage (e.g., 10 for 10%)
+  description String?  // Optional description
+  minPurchase Float?   // Minimum purchase amount
+  maxUses     Int?     // Maximum times coupon can be used (null = unlimited)
+  usedCount   Int      @default(0)  // How many times it's been used
+  active      Boolean  @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([vendorId, code]) // Unique code per vendor
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // NEW_REVIEW, NEW_PRODUCT, COUPON, SYSTEM, etc.
+  title     String
+  message   String
+  data      Json?    // Extra data (vendorId, productId, etc.)
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Conversation {
+  id           String    @id @default(uuid())
+  participant1 String    // First user ID
+  participant2 String    // Second user ID (vendor)
+  lastMessage  String?
+  lastActivity DateTime  @default(now())
+  messages     Message[]
+  createdAt    DateTime  @default(now())
+
+  @@unique([participant1, participant2])
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  content        String
+  read           Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+}
+
+enum ClassifiedType {
+  SEEKING   // Busco trabajo
+  OFFERING  // Ofrezco trabajo
+}
+
+model Classified {
+  id           String         @id @default(uuid())
+  userId       String
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title        String
+  description  String
+  type         ClassifiedType
+  category     String
+  jobType      String         // TEMPORARY, PERMANENT, TRIAL
+  province     String?        // Provincia
+  city         String
+  contact      String?        // WhatsApp/teléfono opcional
+  attachResume Boolean        @default(false) // Attach user's CV
+  active       Boolean        @default(true)
+  expiresAt    DateTime       // 30 días desde creación
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model Favorite {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId]) // One favorite per user per product
+}
+
+model Follow {
+  id         String   @id @default(uuid())
+  followerId String   // User who follows
+  vendorId   String   // Vendor being followed
+  createdAt  DateTime @default(now())
+
+  @@unique([followerId, vendorId]) // One follow per user per vendor
+}

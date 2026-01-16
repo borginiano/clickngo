@@ -1,0 +1,166 @@
+/* =====================================================
+   BASE STYLES - ClickNGo
+   =====================================================
+   Reset y estilos base. NO poner clases de componentes.
+   ===================================================== */
+
+@import './tokens.css';
+
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== HTML & BODY ===== */
+html {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.5;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+#root {
+    min-height: 100vh;
+}
+
+body {
+    color: var(--text-primary);
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* ===== INPUTS ===== */
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Fix select dropdown colors */
+select {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+select option {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* ===== IMAGES ===== */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* ===== LISTS ===== */
+ul,
+ol {
+    list-style: none;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+    background: var(--color-primary);
+    color: var(--bg-primary);
+}
+
+/* ===== FOCUS VISIBLE ===== */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===== LEAFLET FIX ===== */
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    border-radius: var(--radius-lg);
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+
+    /* Hide navbar and footer */
+    nav,
+    footer,
+    header:not([class*="resume"]),
+    .navbar,
+    .footer {
+        display: none !important;
+    }
+
+    /* Force white background */
+    html,
+    body {
+        background: white !important;
+        color: black !important;
+        color-scheme: light !important;
+    }
+
+    /* Reset colors for print */
+    body * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Hide back buttons */
+    [class*="backBtn"],
+    [class*="backLink"],
+    [class*="printBtn"] {
+        display: none !important;
+    }
+
+    /* Force page to fit */
+    .page {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}

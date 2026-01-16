@@ -1,0 +1,115 @@
+/* =====================================================
+   MY FAVORITES - CSS Module
+   ===================================================== */
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-6);
+    min-height: 60vh;
+}
+
+.header {
+    margin-bottom: var(--space-6);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+}
+
+.backLink:hover {
+    color: var(--text-primary);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+.title svg {
+    color: #ff4d6d;
+}
+
+.count {
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+}
+
+.loading {
+    text-align: center;
+    padding: var(--space-16);
+    color: var(--text-muted);
+}
+
+/* Empty State */
+.empty {
+    text-align: center;
+    padding: var(--space-16);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    color: var(--text-disabled);
+    margin-bottom: var(--space-4);
+}
+
+.empty h2 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.empty p {
+    color: var(--text-muted);
+    margin-bottom: var(--space-6);
+}
+
+.exploreBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+}
+
+.exploreBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: var(--space-4);
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
