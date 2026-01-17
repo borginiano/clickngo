@@ -5,8 +5,13 @@ import './styles/base.css'
 import './styles/utilities.css'
 import App from './App.jsx'
 
-// Google Web Client ID
-const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '968649651072-rtkc3gsl4h1kl219ipgl64v1oq94s20o.apps.googleusercontent.com'
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+if (!GOOGLE_CLIENT_ID) {
+  console.error("Missing VITE_GOOGLE_CLIENT_ID in environment variables");
+} else {
+  console.log("Google Auth initialized with ID ending in:", GOOGLE_CLIENT_ID.slice(-10));
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
